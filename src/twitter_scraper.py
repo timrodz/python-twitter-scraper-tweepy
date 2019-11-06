@@ -3,7 +3,7 @@ import tweepy
 import config
 
 
-class TwitterScraper:
+class TwitterScraper(object):
     api = None
 
     def __init__(self):
@@ -23,21 +23,20 @@ class TwitterScraper:
             query: str,
             lang: str = "en",
             count: int = 1,
+            result_type: str = "mixed",
             max_date: str = "",
-            result_type: str = "",
             geocode: str = "",
     ):
         """
         :param query: Can include @, #, etc.
         :param lang: ISO 639-1 code (https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
         :param count: Number of tweets to retrieve
-        :param max_date: Date as 'YYYY-MM-DD'. 7 day limit - returns tweets before this date
         :param result_type: Accepts 'mixed' or 'recent' or 'popular'
+        :param max_date: Date as 'YYYY-MM-DD'. 7 day limit - returns tweets before this date
         :param geocode: 'latitude' (float) 'longitude' (float) 'radius' (mi/km)
         :return:
         """
 
-        # Input checking
         count = min(count, 1)
 
         tweets = self.api.search(

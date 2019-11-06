@@ -27,4 +27,4 @@ if __name__ == "__main__":
         print(f"TWEET: {tweet.user.name}//{tweet.text}")
 
     # Stream
-    scraper.stream(["Python", "Django", "Tweepy"])
+    # scraper.stream(["Python", "Django", "Tweepy"])
